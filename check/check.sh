@@ -48,8 +48,17 @@ adb uninstall   io.appium.settings >/dev/null 2>&1 &
 #cat $LOG_DIR/mvn/mvn.log
 
 
+case $challengeStage  in
+  1)
+    query-dependencies | grep '^\+---'
+    ;;
+  2)
+    gradle-connectedAndroidTest
+    ;;
+esac
+
+
 #评测逻辑
-query-dependencies | grep '^\+---'
 
 
 
