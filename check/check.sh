@@ -13,6 +13,7 @@ echo "" >$LOG_DIR/emulator/emulator.log
 echo "" >$LOG_DIR/gradle/build-task.log
 echo "" >$LOG_DIR/gradle/uninstallDebug-task.log
 echo "" >$LOG_DIR/gradle/installDebug-task.log
+echo "" >$LOG_DIR/gradle/test.log
 echo "" >$LOG_DIR/mvn/mvn.log
 
 #关闭已启动的进程
@@ -53,12 +54,12 @@ case $challengeStage  in
     query-dependencies | grep '^\+---'
     ;;
   2)
-    gradle-connectedAndroidTest
+    gradle-test
+    cat $LOG_DIR/gradle/test.log
     ;;
 esac
 
 
-#评测逻辑
 
 
 

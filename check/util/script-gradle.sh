@@ -18,7 +18,7 @@ gradle-build(){
 
 #执行 Gradle uninstallDebug Task
 gradle-uninstallDebug(){
-	nohup  ./gradlew uninstallDebug --quiet --offline $LOG_DIR/gradle/uninstallDebug-task.log
+	nohup  ./gradlew uninstallDebug --quiet --offline >> $LOG_DIR/gradle/uninstallDebug-task.log  2>&1
 }
 
 
@@ -27,9 +27,12 @@ gradle-installDebug(){
 	nohup ./gradlew installDebug --offline >> $LOG_DIR/gradle/installDebug-task.log
 }
 
-#执行 Gradle 
-# ./gradlew :app:connectedAndroidTest
+#执行 Gradle  connectedAndroidTest 
 gradle-connectedAndroidTest(){
-	nohup ./gradlew :app:connectedAndroidTest --offline >> $LOG_DIR/gradle/installDebug-task.log
+	nohup ./gradlew :app:connectedAndroidTest --offline >> $LOG_DIR/gradle/connectedAndroidTest.log
 }
 
+#执行 Gradle test
+gradle-test(){
+	nohup ./gradlew :app:test --rerun-tasks --offline >> $LOG_DIR/gradle/test.log
+}
