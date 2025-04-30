@@ -51,7 +51,8 @@ adb uninstall   io.appium.settings >/dev/null 2>&1 &
 
 case $challengeStage  in
   1)
-    query-dependencies | grep '^\+---'
+    appium-check
+    cat  $LOG_DIR/appium/compile.log
     ;;
   2)
     gradle-test
