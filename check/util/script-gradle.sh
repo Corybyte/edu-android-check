@@ -13,26 +13,26 @@ query-dependencies(){
 
 #执行 Gradle build Task
 gradle-build(){
-	nohup	./gradlew build --offline >> $LOG_DIR/gradle/build-task.log
+	nohup	./gradlew build --offline >> $LOG_DIR/gradle/build-task.log 2>&1 < /dev/null
 }
 
 #执行 Gradle uninstallDebug Task
 gradle-uninstallDebug(){
-	nohup  ./gradlew uninstallDebug --quiet --offline >> $LOG_DIR/gradle/uninstallDebug-task.log  2>&1
+	nohup  ./gradlew uninstallDebug --quiet --offline >> $LOG_DIR/gradle/uninstallDebug-task.log  2>&1 < /dev/null 
 }
 
 
 #执行 Gradle installDebug Task
 gradle-installDebug(){
-	nohup ./gradlew installDebug --offline >> $LOG_DIR/gradle/installDebug-task.log
+	nohup ./gradlew installDebug --offline >> $LOG_DIR/gradle/installDebug-task.log 2>&1 < /dev/null 
 }
 
 #执行 Gradle  connectedAndroidTest 
 gradle-connectedAndroidTest(){
-	nohup ./gradlew :app:connectedAndroidTest --offline >> $LOG_DIR/gradle/connectedAndroidTest.log
+    nohup ./gradlew :app:connectedAndroidTest --offline >> $LOG_DIR/gradle/connectedAndroidTest.log  2>&1 < /dev/null 
 }
 
 #执行 Gradle test
 gradle-test(){
-	nohup ./gradlew :app:test --rerun-tasks --offline >> $LOG_DIR/gradle/test.log
+	nohup ./gradlew :app:test --rerun-tasks --offline >> $LOG_DIR/gradle/test.log 2>&1 < /dev/null 
 }
